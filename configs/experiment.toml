@@ -1,0 +1,29 @@
+[data]
+venue = "bybit"
+history_years = 4
+intervals = ["1m", "15m", "1h", "1d"]
+markets = ["spot", "linear_perpetual"]
+
+[universe]
+mode = "point_in_time_all_eligible"
+quote_assets = ["USDT", "USDC", "USD"]
+minimum_history_days = 90
+minimum_daily_quote_volume = 1000000.0
+exclude_stablecoin_bases = true
+
+[agent]
+action_spaces = ["buy_sell_hold", "target_position", "portfolio_weights"]
+directions = ["long_only", "long_short"]
+
+[risk]
+profile = "aggressive_research"
+leverages = [1.0, 2.0, 3.0, 5.0]
+max_portfolio_drawdown = 0.35
+max_position_weight = 0.20
+max_gross_exposure = 5.0
+
+[evaluation]
+walk_forward_folds = 4
+seeds = [7, 19, 42]
+fee_multiplier = 1.0
+slippage_multipliers = [1.0, 1.5, 2.0]
